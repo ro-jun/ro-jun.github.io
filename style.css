@@ -37,7 +37,7 @@ header > nav > ul > button:first-child {
 }
 
 /* about 섹션 스타일 */
-#about-me {
+#about-me-explanation {
     position: relative; /* ::before를 위해 위치 지정 */
     padding: 200px; /* 상하 여백 추가 */
     max-height: 1000px;
@@ -47,7 +47,7 @@ header > nav > ul > button:first-child {
     z-index: 0;
 }
 
-#about-me::before {
+#about-me-explanation::before {
     content: ""; /* 가상 요소 추가 */
     position: absolute; /* 부모 요소를 기준으로 배치 */
     top: 0;
@@ -67,6 +67,71 @@ header > nav > ul > button:first-child {
     max-height: 300px;
     margin: 0 auto; 
     gap: 100px;
+}
+
+#about-me-detail-container {
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    padding: 50px;
+}
+
+#about-me-details {
+    display: flex;
+    gap: 100px; /* ABOUT-ME와 CHANNEL 간격을 조정 */
+    background-color: rgba(173, 166, 166, 0.7);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.5);
+}
+
+#about-me-details h1 {
+    font-size: 4rem;
+    justify-self: center;
+    padding-bottom: 50px;
+}
+
+#about-me-detail {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+#about-me-detail a{
+    display: flex;
+    justify-content: start; /* 가로 정렬 */
+    align-items: start;
+    flex-direction: column;
+    font-size: 1rem;
+    line-height: 3;
+}
+
+#about-me-channel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+#about-me-channel a{
+    display: flex;
+    justify-content: start; /* 가로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 3;
+}
+
+#about-me-channel img {
+    width: 30px; /* 원하는 너비 */
+    height: 30px; /* 원하는 높이 */
+    margin-right: 10px; /* 텍스트와의 간격 */
 }
 
 /* 이미지 스타일 */
@@ -103,6 +168,7 @@ header > nav > ul > button:first-child {
     flex-direction: column; /* 세로 정렬 */
     align-items: center; /* 세로 중앙 정렬 */
     padding: 50px;
+    background-color: rgba(225, 236, 219, 0.836);
 }
 
 #project h1 {
@@ -138,6 +204,7 @@ header > nav > ul > button:first-child {
     border: 1px solid #ddd; /* 카드에 경계선 추가 */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(65, 64, 64, 0.5);
+    background-color: #fff;
     cursor: pointer;
 }
 
@@ -146,39 +213,76 @@ header > nav > ul > button:first-child {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-#contact {
-    text-align: center; /* 글자 위치 */
-}
-
-#contact2{
-    display: flex;
-    height: 400px;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    background-color: #009;
+#skills {
+    background-color: #f6d743; /* 배경색 */
+    padding: 50px 0;
+    text-align: center;
     padding: 50px;
-    text-align: center; /* 글자 위치 */
 }
 
-#contact3{
+#skills h2 {
+    font-size: 4rem;
+    margin-bottom: 40px;
+}
+
+.skills-container {
+    max-width: 1200px; /* 최대 너비 지정 */
+    justify-self: center; /* 가운데 정렬 */
+    background-color: #fff8d8; /* 박스 배경색 */
+    padding: 40px; ;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skills-content {
+    display: flex; 
+    flex-wrap: wrap; /* 요소가 너무 많아서 한 줄에 다 담기지 않을 때 자동으로 줄바꿈 */
+    gap: 30px;
+}
+
+.skills-category {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.skills-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: left;
+}
+
+.skills-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.skill {
+    background-color: #ad5757; /* 태그 배경색 */
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#education{
     display: flex;
     height: 400px;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     background-color: #090;
-    padding: 50px;
-    text-align: center; /* 글자 위치 */
-}
-
-#footer{
-    display: flex;
-    height: 400px;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    background-color: #900;
     padding: 50px;
     text-align: center; /* 글자 위치 */
 }
