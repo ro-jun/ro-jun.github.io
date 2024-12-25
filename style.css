@@ -36,7 +36,6 @@ header > nav > ul > button:first-child {
     font-size: 30px;
 }
 
-/* about 섹션 스타일 */
 #about-me-explanation {
     position: relative; /* ::before를 위해 위치 지정 */
     padding: 200px; /* 상하 여백 추가 */
@@ -59,21 +58,55 @@ header > nav > ul > button:first-child {
 }
 
 .about-me-container {
-    position: relative; /* 텍스트와 이미지가 오버레이 위에 오도록 설정 */
-    z-index: 100; /* 오버레이보다 위에 배치 */
     display: flex;
     align-items: center;
-    max-width: 1200px;
-    max-height: 300px;
     margin: 0 auto; 
-    gap: 100px;
+}
+
+/* 이미지 스타일 */
+.about-me-container > .about-me-image{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url('images/hojun.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 100;
+}
+
+/* 프로필 텍스트 스타일 */
+.about-me-container > .about-me-text {
+    flex: 1;
+    margin-left: 100px; /* 텍스트 왼쪽에 여백 추가 */
+    text-align: left;
+    color: #fff; /* 텍스트를 흰색으로 변경 */
+    z-index: 100;
+}
+.about-me-container > .about-me-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+    
+}
+.about-me-container > .about-me-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 #about-me-detail-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: beige;
     padding: 50px;
+}
+
+#about-me-detail-container h1 {
+    font-size: 4rem;
+    margin-bottom: 40px;
 }
 
 #about-me-details {
@@ -86,14 +119,13 @@ header > nav > ul > button:first-child {
 }
 
 #about-me-details h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     justify-self: center;
-    padding-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 #about-me-detail {
     display: flex;
-    flex-direction: column;
     background-color: #fff;
     padding: 50px;
     border-radius: 10px;
@@ -101,17 +133,14 @@ header > nav > ul > button:first-child {
 
 #about-me-detail a{
     display: flex;
-    justify-content: start; /* 가로 정렬 */
-    align-items: start;
     flex-direction: column;
+    justify-content: start;
     font-size: 1rem;
-    line-height: 3;
+    margin-bottom: 30px;
 }
 
 #about-me-channel{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #fff;
     padding: 50px;
     border-radius: 10px;
@@ -119,8 +148,8 @@ header > nav > ul > button:first-child {
 
 #about-me-channel a{
     display: flex;
-    justify-content: start; /* 가로 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: start;
+    align-items: start;
     font-size: 1rem;
     color: #000;
     text-decoration: none;
@@ -129,88 +158,10 @@ header > nav > ul > button:first-child {
 }
 
 #about-me-channel img {
-    width: 30px; /* 원하는 너비 */
-    height: 30px; /* 원하는 높이 */
-    margin-right: 10px; /* 텍스트와의 간격 */
-}
-
-/* 이미지 스타일 */
-.about-me-container > .about-me-image{
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background-image: url('images/hojun.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-/* 프로필 텍스트 스타일 */
-.about-me-container > .about-me-text {
-    flex: 1;
-    margin-left: 100px; /* 텍스트 왼쪽에 여백 추가 */
-    text-align: left;
-    color: #fff; /* 텍스트를 흰색으로 변경 */
-}
-.about-me-container > .about-me-text h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #fff;
-}
-.about-me-container > .about-me-text p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-#project {
-    display: flex;
-    flex-direction: column; /* 세로 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    padding: 50px;
-    background-color: rgba(225, 236, 219, 0.836);
-}
-
-#project h1 {
-    font-size: 4rem;
-    margin-bottom: 40px;
-}
-
-#projects-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%; /* 부모 요소 너비에 맞춤 */
-    gap: 30px;
-}
-
-#prev-btn, #next-btn {
-    font-size: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    padding: 15px;
-    cursor: pointer;
-}
-
-#projects-container div {
-    display: flex;
-    flex-wrap: wrap;
-    width: 300px;
-    height: 400px;
-    margin: 20px 40px;
-    padding: 20px;
-    justify-content: center;
-    border: 1px solid #ddd; /* 카드에 경계선 추가 */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.5);
-    background-color: #fff;
-    cursor: pointer;
-}
-
-#projects-container div:hover {
-    transform: translateY(-30px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 #skills {
@@ -276,13 +227,126 @@ header > nav > ul > button:first-child {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#education{
+#project {
     display: flex;
-    height: 400px;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    background-color: #090;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
     padding: 50px;
-    text-align: center; /* 글자 위치 */
+    background-color: rgba(225, 236, 219, 0.836);
+}
+
+#project h1 {
+    font-size: 4rem;
+    margin-bottom: 40px;
+}
+
+#projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%; /* 부모 요소 너비에 맞춤 */
+    gap: 30px;
+}
+
+#prev-btn, #next-btn {
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+#projects-container div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 400px;
+    margin: 20px 40px;
+    padding: 20px;
+    border: 1px solid #ddd; /* 카드에 경계선 추가 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(65, 64, 64, 0.5);
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.project-card p{
+    flex: 3;
+    text-align: center;
+    padding: 20px;  
+}
+
+#projects-container div:hover {
+    transform: translateY(-30px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 오버레이 숨기기 */
+.hidden {
+    display: none;
+}
+
+/* 오버레이 전체 화면 */
+#project-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* 반투명 배경 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 오버레이 내용 */
+#overlay-content {
+    position: relative; /* 닫기 버튼을 포함하기 위해 상대 위치 */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 닫기 버튼 스타일 */
+#close-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#close-overlay:hover {
+    color: #ff0000; /* 호버 시 색상 변경 */
+}
+
+@font-face {
+    font-family: 'SYU';
+    src: url('fonts/삼육대체 Light.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SYU';
+    src: url('fonts/삼육대체 Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
 }
