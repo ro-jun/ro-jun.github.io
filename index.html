@@ -169,29 +169,48 @@
             <div id="project">
                 <h1>PROJECTS</h1>
                 <div id="projects-container">
-                    <button id="prev-btn">←</button>
-                    <div id="project1" class="project-card" data-title="프로젝트 1" data-description="프로젝트 1의 설명입니다.">
+                    <div id="project1" class="project-card" 
+                         data-title="프로젝트 1" 
+                         data-description="이것은 프로젝트 1의 설명입니다." 
+                         data-detail="프로젝트 1은 인공지능 모델을 활용한 분석 프로젝트입니다.">
                         <h3>프로젝트 1</h3>
                         <p>프로젝트１ 설명</p>
                     </div>
-                    <div id="project2" class="project-card" data-title="프로젝트 2" data-description="프로젝트 2의 설명입니다.">
+                    <div id="project2" class="project-card" 
+                         data-title="프로젝트 2" 
+                         data-description="이것은 프로젝트 2의 설명입니다." 
+                         data-detail="프로젝트 2는 웹 개발 기술을 활용한 쇼핑몰 프로젝트입니다.">
                         <h3>프로젝트 2</h3>
                         <p>프로젝트2 설명</p>
                     </div>
-                    <div id="project3" class="project-card" data-title="프로젝트 3" data-description="프로젝트 3의 설명입니다.">
+                    <div id="project3" class="project-card" 
+                         data-title="프로젝트 3" 
+                         data-description="이것은 프로젝트 3의 설명입니다." 
+                         data-detail="프로젝트 3은 빅데이터 분석을 통한 통계 보고서입니다.">
                         <h3>프로젝트 3</h3>
                         <p>프로젝트3 설명</p>
                     </div>
-                    <button id="next-btn">→</button>
                 </div>
                 <div class="hidden">
-                    <div id="project-overlay">
+                    <div id="project-overlay" class="hidden">
                         <div id="overlay-content">
+                            <div id="arrow-container">
+                                <div id="prev-slide-container">
+                                    <div id="prev-slide">←</div>
+                                </div>
+                                <div id="next-slide-container">
+                                    <div id="next-slide">→</div>
+                                </div>
+                            </div>
+                            <div id="overlay-slide-container">
+                                <h3 id="overlay-title"></h3>
+                                <img id="overlay-image" src="" alt="프로젝트 이미지">
+                                <p id="overlay-description"></p>
+                                <p id="overlay-development"></p>
+                            </div>
                             <button id="close-overlay">✖</button>
-                            <h3 id="overlay-title"></h3>
-                            <p id="overlay-description"></p>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </section>
