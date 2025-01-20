@@ -12,9 +12,9 @@
             <nav>
                 <ul>
                     <button id="ro-jun-Portfolio">ro-jun Portfolio</button>
-                    <button id="btn-about">about-me</button>
-                    <button id="btn-contact">Career</button>
-                    <button id="btn-projects">project</button>
+                    <button id="btn-about">About-Me</button>
+                    <button id="btn-contact">Skills</button>
+                    <button id="btn-projects">Project</button>
                 </ul>
             </nav>
         </header>
@@ -23,20 +23,10 @@
             <div class="about-me-container">
                 <div class="about-me-image"></div>
                 <div class="about-me-text">
-                    <h1>안녕하세요, 송호준입니다.</h1>
-                    <p>저의 포트폴리오 페이지에 오신 것을 환영합니다!</p>
+                    <h1>- LLM 개발자 송호준 -</h1>
                     <p>
                         저는 데이터 처리와 대규모 언어 모델(LLM)에 관심을 가지고 다양한 연구와 개발을 수행하는 개발자입니다.<br>
-                        Python과 웹 개발 기술을 활용해 효율적이고 창의적인 프로젝트를 구현하고 있습니다.
-                    </p>
-                    <p>
-                        사용 중인 기술 스택으로는 <strong>Python, Flask, MongoDB</strong> 등 백엔드 및 데이터 처리 도구와
-                        <strong>HTML, CSS</strong> 등의 프론트엔드 개발 기술을 포함하고 있습니다.<br> 
-                        또한 Git과 같은 협업 도구를 활용해 보다 효율적인 프로젝트를 진행하고 있습니다.
-                    </p>
-                    <p>
-                        현재 Docker 및 Kubernetes와 같은 컨테이너화 기술과 JavaScript 및 컴퓨터 비전(OpenCV)을 학습 중이며,<br>
-                        LLM 파인튜닝을 위한 PyTorch와 TensorFlow 기술에도 도전하고 있습니다.
+                        Python과 웹 개발 기술을 프로젝트를 구현하고 있습니다.
                     </p>
                 </div>
             </div>
@@ -120,13 +110,13 @@
                         <h3>DB</h3>
                         <div class="skills-items">
                             <span class="skill">MongoDB</span>
-                            <span class="skill">Pinecone</span>
                         </div>
                     </div>
                     <div class="skills-category">
                         <h3>Focus-Skill</h3>
                         <div class="skills-items">
                             <span class="skill">RAG(naiveRAG)</span>
+                            <span class="skill">Pinecone</span>
                         </div>
                     </div>
                     <div class="skills-category">
@@ -169,26 +159,44 @@
             <div id="project">
                 <h1>PROJECTS</h1>
                 <div id="projects-container">
-                    <div id="project1" class="project-card" 
-                         data-title="프로젝트 1" 
-                         data-description="이것은 프로젝트 1의 설명입니다." 
-                         data-detail="프로젝트 1은 인공지능 모델을 활용한 분석 프로젝트입니다.">
-                        <h3>프로젝트 1</h3>
-                        <p>프로젝트１ 설명</p>
+                    <div id="project1" class="project-card" data-id="project1">
+                        <h3>LangChain OpenTutorial</h3>
+                        <p><br>글로벌 LangChain 튜토리얼 개발<br><br>
+                            Pinecone(진행중), OpenAIEmbedding(완).<br>
+                        </p>
+                        <p>
+                            <a href="https://github.com/LangChain-OpentTutorial" target="_blank">프로젝트 링크</a>
+                        </p>
                     </div>
-                    <div id="project2" class="project-card" 
-                         data-title="프로젝트 2" 
-                         data-description="이것은 프로젝트 2의 설명입니다." 
-                         data-detail="프로젝트 2는 웹 개발 기술을 활용한 쇼핑몰 프로젝트입니다.">
-                        <h3>프로젝트 2</h3>
-                        <p>프로젝트2 설명</p>
+                    
+                    <div id="project2" class="project-card" data-id="project2">
+                        <h3>Data Market Platform</h3>
+                        <p><br> 
+                            데이터 거래 플랫폼<br><br>
+                            챗봇과 사용자의<br>대화 속에서 요구를 파악하여<br>사용자 맞춤 데이터 제공.<br>                             
+                        </p>
+                        <p>
+                            <a href="https://github.com/ro-jun/Data_Market_Platform" target="_blank">프로젝트 링크</a>
+                        </p>
                     </div>
-                    <div id="project3" class="project-card" 
-                         data-title="프로젝트 3" 
-                         data-description="이것은 프로젝트 3의 설명입니다." 
-                         data-detail="프로젝트 3은 빅데이터 분석을 통한 통계 보고서입니다.">
-                        <h3>프로젝트 3</h3>
-                        <p>프로젝트3 설명</p>
+                    <div id="project3" class="project-card" data-id="project3">
+                        <h3>SYU Chat Bot</h3>
+                        <p>수강신청 도우미<br><br>
+                            효율적인 강의 계획서<br> 탐색 및 수강 신청 지원<br><br>
+                            LLM을 활용한<br> 수강신청 도우미 챗봇 개발.<br> 
+                        </p>
+                        <p>
+                            <a href="https://github.com/ro-jun/SYU_Chat_Bot" target="_blank">프로젝트 링크</a>
+                        </p>
+                    </div>
+                    <div id="project4" class="project-card" data-id="project4">
+                        <h3>연합 기숙사 최적지 분석</h3>
+                        <p><br>교육 공공데이터<br>
+                            분석활용대회(본선)<br>
+                            <br>
+                            학생들의 거주지<br> 
+                            문제 해결을 위한 데이터 분석
+                        </p>
                     </div>
                 </div>
                 <div class="hidden">
@@ -208,13 +216,36 @@
                                 <p id="overlay-description"></p>
                                 <p id="overlay-development"></p>
                             </div>
-                            <button id="close-overlay">✖</button>
+                            <button id="close-overlay" tabindex="0">✖</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <footer>
+            <div id="chatbot-container">
+                <div id="chatbot">
+                    <div id="chatbot-messages">
+                        <div class="chatbot-message">
+                            <div class="chatbot-message-content">안녕하세요, 송호준에 대하여 질문해 주세요!</div>
+                        </div>
+                    </div>
+                    <div id="chatbot-input">
+                        <input type="text" id="chatbot-text" placeholder="메시지를 입력하세요..." />
+                        <button id="chatbot-send">전송</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
+        <!-- 챗봇 호출 버튼 -->
+        <div id="chatbot-button">💬</div>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>
         <script src="script.js"></script>
     </div>
 </body>

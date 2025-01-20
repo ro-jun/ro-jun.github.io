@@ -1,72 +1,70 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const aboutButton = document.getElementById('btn-about');
+    const skillsButton = document.getElementById('btn-contact');
+    const projectsButton = document.getElementById('btn-projects');
+    const portfolioButton = document.getElementById('ro-jun-Portfolio');
+
+    // 섹션 참조
+    const aboutSection = document.getElementById('about-me-detail-container');
+    const skillsSection = document.getElementById('skills');
+    const projectsSection = document.getElementById('project');
+
+    // 부드럽게 스크롤 함수
+    function scrollToSection(section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // 버튼 클릭 이벤트
+    aboutButton.addEventListener('click', () => scrollToSection(aboutSection));
+    skillsButton.addEventListener('click', () => scrollToSection(skillsSection));
+    projectsButton.addEventListener('click', () => scrollToSection(projectsSection));
+    portfolioButton.addEventListener('click', () => scrollToSection(document.body)); // 상단으로 이동
+});
+
 // 프로젝트 데이터 정의
 const projectData = [
     {
         id: "project1",
-        title: "프로젝트 1",
-        description: "이것은 프로젝트 1의 설명입니다. 프로젝트 1은 인공지능 모델을 활용한 분석 프로젝트입니다.",
-        images: ["images/DALLE_winter.jpg", "images/hojun.jpg", "images/DALLE_winter.jpg"],
-        developmentProcess: "이 프로젝트는 Python과 Flask를 사용해 개발되었으며, 데이터 분석에 중점을 두었습니다."
+        title: "LangChain OpenTutorial",
+        description: "영어버전 LangChain OpenTutorial을 제작하여 실리콘 벨리로 제공 하기 위한 프로젝트입니다.",
+        images: ["images/Langchain-00.png", "images/Langchain-01.png", "images/pinecone-01.png", "images/pinecone-02.png", "images/pinecone-03.png", "images/pinecone-04.png", "images/embedding-01.png", "images/embedding-02.png"],
+        developmentProcess: ""
     },
     {
         id: "project2",
-        title: "프로젝트 2",
-        description: "이것은 프로젝트 2의 설명입니다. 프로젝트 2는 웹 기반의 대규모 데이터 처리 시스템입니다.",
-        images: ["images/DALLE_winter.jpg", "images/DALLE_winter.jpg"],
-        developmentProcess: "React와 Node.js를 사용해 개발되었으며, MongoDB를 활용해 데이터를 처리합니다."
+        title: "Data_Market_Platform",
+        description: "사용자 요구를 파악하여 맞춤형 데이터를 제공하는 챗봇",
+        images: ["images/datamarket-01.png", "images/datamarket-02.png", "images/datamarket-03.png", "images/datamarket-04.png", "images/datamarket-05.png"],
+        developmentProcess: ""
     },
     {
         id: "project3",
-        title: "프로젝트 3",
-        description: "이것은 프로젝트 3의 설명입니다. 프로젝트 3은 클라우드 기술을 활용한 서비스입니다.",
-        images: ["images/DALLE_winter.jpg", "images/hojun.jpg", "images/DALLE_winter.jpg", "images/hojun.jpg"],
-        developmentProcess: "AWS Lambda와 DynamoDB를 사용하여 서버리스 환경에서 실행됩니다."
+        title: "수강신청 도우미",
+        description: "",
+        images: ["images/", "images/", "images/", "images/"],
+        developmentProcess: ""
+    },
+    {
+        id: "project4",
+        title: "연합 기숙사 최적지 분석",
+        description: "",
+        images: ["images/edu-01.png", "images/edu-02.png", "images/edu-03.png", "images/edu-04.png", "images/edu-05.png", "images/edu-06.png", "images/edu-07.png", "images/edu-08.png", "images/edu-09.png", "images/edu-10.png", "images/edu-11.png", "images/edu-12.png", "images/edu-13.png", "images/edu-14.png",],
+        developmentProcess: ""
     }
 ];
-
-// 버튼 요소 가져오기
-const btnAbout = document.getElementById("btn-about"); // About 버튼
-const btnProjects = document.getElementById("btn-projects"); // Projects 버튼
-const btnContact = document.getElementById("btn-contact"); // Contact 버튼
-
-// 섹션 요소 가져오기
-const sectionAbout = document.getElementById("about-me"); // About 섹션
-const sectionProjects = document.getElementById("project"); // Projects 섹션
-const sectionContact = document.getElementById("contact"); // Contact 섹션
 
 // 부드럽게 스크롤 함수
 function scrollToSection(section) {
     section.scrollIntoView({ behavior: "smooth" }); // 스크롤을 부드럽게 이동
 }
 
+function updateArrowState() {
+    prevButton.disabled = currentImageIndex === 0;
+    nextButton.disabled = currentProject && currentImageIndex === currentProject.images.length - 1;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const overlayWrapper = document.querySelector('.hidden'); // 오버레이를 감싸는 부모 div
-    const closeButton = document.getElementById('close-overlay'); // 닫기 버튼
-    const projectCards = document.querySelectorAll('.project-card'); // 모든 프로젝트 카드
-
-    // 프로젝트 카드 클릭 시 오버레이 표시
-    projectCards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const title = card.getAttribute('data-title'); // 클릭한 카드의 제목 가져오기
-            const description = card.getAttribute('data-description'); // 클릭한 카드의 설명 가져오기
-            const detail = card.getAttribute('data-detail'); // 클릭한 카드의 상세 내용 가져오기
-
-            // 오버레이에 데이터를 삽입
-            document.getElementById('overlay-title').textContent = title; // 제목 삽입
-            document.getElementById('overlay-description').textContent = `${description}\n\n${detail}`; // 설명 및 상세 내용 삽입
-
-            // hidden 클래스를 제거하여 오버레이 표시
-            overlayWrapper.classList.remove('hidden');
-        });
-    });
-
-    // 닫기 버튼 클릭 시 오버레이 숨기기
-    closeButton.addEventListener('click', () => {
-        overlayWrapper.classList.add('hidden'); // hidden 클래스를 추가하여 오버레이 숨김
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('project-overlay');
     const closeButton = document.getElementById('close-overlay');
     const prevButton = document.getElementById('prev-slide')
     const nextButton = document.getElementById('next-slide');
@@ -90,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 프로젝트 카드 클릭 시 오버레이 표시
     projectCards.forEach((card, index) => {
         card.addEventListener('click', () => {
-            currentProject = projectData[index]; // 현재 프로젝트 데이터 가져오기
+            const projectId = card.getAttribute('data-id'); // data-id를 가져옵니다.
+            currentProject = projectData.find(project => project.id === projectId); // data-id와 일치하는 프로젝트 데이터 찾기
             if (currentProject) {
                 // 제목 및 설명 업데이트
                 document.getElementById('overlay-title').textContent = currentProject.title;
@@ -102,28 +101,84 @@ document.addEventListener('DOMContentLoaded', () => {
                 showImage(currentImageIndex);
 
                 // 오버레이 표시
-                overlay.classList.remove('hidden');
+                overlayWrapper.classList.remove('hidden');
             }
         });
     });
 
-    // 이전 이미지 버튼 클릭 이벤트
     prevButton.addEventListener('click', () => {
         if (currentImageIndex > 0) {
-            showImage(currentImageIndex - 1);
+            currentImageIndex--; // 현재 이미지 인덱스를 감소
+            showImage(currentImageIndex); // 이미지를 업데이트
+            updateArrowState(); // 화살표 상태를 업데이트
         }
     });
-
-    // 다음 이미지 버튼 클릭 이벤트
+    
     nextButton.addEventListener('click', () => {
         if (currentProject && currentImageIndex < currentProject.images.length - 1) {
-            showImage(currentImageIndex + 1);
+            currentImageIndex++; // 현재 이미지 인덱스를 증가
+            showImage(currentImageIndex); // 이미지를 업데이트
+            updateArrowState(); // 화살표 상태를 업데이트
         }
     });
 
     // 닫기 버튼 클릭 시 오버레이 숨기기
     closeButton.addEventListener('click', () => {
-        overlay.classList.add('hidden');
+        overlayWrapper.classList.add('hidden');
         currentProject = null; // 현재 프로젝트 데이터 초기화
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotSendButton = document.getElementById('chatbot-send');
+    const chatbotTextInput = document.getElementById('chatbot-text');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    
+    let chatbotVisible = false;
+
+    chatbotButton.addEventListener('click', toggleChatbot);
+
+    chatbotSendButton.addEventListener('click', sendMessage);
+
+    chatbotTextInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // 기본 Enter 동작 방지
+            sendMessage();
+        }
+    });
+
+    function toggleChatbot() {
+        chatbotVisible = !chatbotVisible; // 상태 토글
+        chatbotContainer.style.display = chatbotVisible ? 'block' : 'none'; // 표시 상태 변경
+    }
+
+    function sendMessage() {
+        const userMessage = chatbotTextInput.value.trim(); // 입력값 가져오기
+        if (userMessage) {
+            // 사용자 메시지 추가
+            appendMessage(`사용자: ${userMessage}`, 'user');
+            
+            chatbotTextInput.value = ''; // 입력창 초기화
+
+            // 챗봇 답변 추가 (간단한 예제)
+            const botResponse = `챗봇: "${userMessage}"에 대한 답변입니다.`;
+            appendMessage(botResponse, 'bot');
+        }
+    }
+
+    /**
+     * 메시지 추가 함수
+     * @param {string} text - 추가할 메시지 내용
+     * @param {string} sender - 'user' 또는 'bot' (보낸 사람)
+     */
+    function appendMessage(text, sender) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = text;
+        messageElement.className = sender === 'user' ? 'chatbot-user-message' : 'chatbot-bot-message';
+        chatbotMessages.appendChild(messageElement);
+
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
 });
