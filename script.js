@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillsSection = document.getElementById('skills');
     const projectsSection = document.getElementById('project');
 
-    // 부드럽게 스크롤 함수
+    // 부드러운 스크롤 함수
     function scrollToSection(section) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -53,16 +53,12 @@ const projectData = [
     }
 ];
 
-// 부드럽게 스크롤 함수
-function scrollToSection(section) {
-    section.scrollIntoView({ behavior: "smooth" }); // 스크롤을 부드럽게 이동
-}
-
 function updateArrowState() {
     prevButton.disabled = currentImageIndex === 0;
     nextButton.disabled = currentProject && currentImageIndex === currentProject.images.length - 1;
 }
 
+// 오버레이 관련 코드
 document.addEventListener('DOMContentLoaded', () => {
     const overlayWrapper = document.querySelector('.hidden'); // 오버레이를 감싸는 부모 div
     const closeButton = document.getElementById('close-overlay');
@@ -129,56 +125,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const chatbotButton = document.getElementById('chatbot-button');
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatbotSendButton = document.getElementById('chatbot-send');
-    const chatbotTextInput = document.getElementById('chatbot-text');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    
-    let chatbotVisible = false;
-
-    chatbotButton.addEventListener('click', toggleChatbot);
-
-    chatbotSendButton.addEventListener('click', sendMessage);
-
-    chatbotTextInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // 기본 Enter 동작 방지
-            sendMessage();
-        }
+// 챗봇 관련 코드
+async function getOllamaResponse(userInput) {
+    const response = await fetch("http://localhost:8000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userInput })
     });
 
+    const data = await response.json();
+    return data.response;
+}
+
+// 챗봇 UI와 연동
+document.addEventListener('DOMContentLoaded', () => {
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotSendButton = document.getElementById('chatbot-send');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotTextInput = document.getElementById('chatbot-text');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+
+    let chatbotVisible = false;
+    
     function toggleChatbot() {
         chatbotVisible = !chatbotVisible; // 상태 토글
         chatbotContainer.style.display = chatbotVisible ? 'block' : 'none'; // 표시 상태 변경
     }
 
-    function sendMessage() {
-        const userMessage = chatbotTextInput.value.trim(); // 입력값 가져오기
-        if (userMessage) {
-            // 사용자 메시지 추가
-            appendMessage(`사용자: ${userMessage}`, 'user');
-            
-            chatbotTextInput.value = ''; // 입력창 초기화
+    chatbotButton.addEventListener('click', toggleChatbot);
 
-            // 챗봇 답변 추가 (간단한 예제)
-            const botResponse = `챗봇: "${userMessage}"에 대한 답변입니다.`;
-            appendMessage(botResponse, 'bot');
-        }
-    }
-
-    /**
-     * 메시지 추가 함수
-     * @param {string} text - 추가할 메시지 내용
-     * @param {string} sender - 'user' 또는 'bot' (보낸 사람)
-     */
     function appendMessage(text, sender) {
         const messageElement = document.createElement('div');
         messageElement.textContent = text;
         messageElement.className = sender === 'user' ? 'chatbot-user-message' : 'chatbot-bot-message';
         chatbotMessages.appendChild(messageElement);
-
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
+    
+    chatbotSendButton.addEventListener('click', async () => {
+        const userMessage = chatbotTextInput.value.trim();
+        if (!userMessage) return;
+
+        appendMessage(`사용자: ${userMessage}`, 'user');
+        chatbotTextInput.value = '';
+
+        const botResponse = await getOllamaResponse(userMessage);
+        appendMessage(`챗봇: ${botResponse}`, 'bot');
+    });
 });
